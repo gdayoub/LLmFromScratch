@@ -1,0 +1,218 @@
+{
+  "description": "locally authored short factual summaries and common elementary animal facts not copied articles",
+  "animals": [
+    {
+      "name": "dog",
+      "group": "mammal",
+      "sound": "barks",
+      "habitat": "Dogs often live with people.",
+      "feature": "Dogs have a strong sense of smell."
+    },
+    {
+      "name": "cat",
+      "group": "mammal",
+      "sound": "meows",
+      "habitat": "Cats often live with people.",
+      "feature": "Cats use whiskers to sense nearby objects."
+    },
+    {
+      "name": "cow",
+      "group": "mammal",
+      "sound": "moos",
+      "habitat": "Domestic cows are often kept on farms.",
+      "feature": "Cows eat plants such as grass."
+    },
+    {
+      "name": "sheep",
+      "group": "mammal",
+      "sound": "bleats",
+      "habitat": "Domestic sheep are often kept on farms.",
+      "feature": "Many sheep have thick wool."
+    },
+    {
+      "name": "horse",
+      "group": "mammal",
+      "sound": "neighs",
+      "habitat": "Domestic horses are often kept on farms or in stables.",
+      "feature": "Horses have hooves."
+    },
+    {
+      "name": "pig",
+      "group": "mammal",
+      "sound": "oinks",
+      "habitat": "Domestic pigs are often kept on farms.",
+      "feature": "Pigs have snouts that help them search for food."
+    },
+    {
+      "name": "duck",
+      "group": "bird",
+      "sound": "quacks",
+      "habitat": "Many ducks live near ponds and lakes.",
+      "feature": "Ducks have webbed feet that help them swim."
+    },
+    {
+      "name": "chicken",
+      "group": "bird",
+      "sound": "clucks",
+      "habitat": "Domestic chickens are often kept on farms.",
+      "feature": "Chickens have feathers and lay eggs."
+    },
+    {
+      "name": "owl",
+      "group": "bird",
+      "sound": "hoots",
+      "habitat": "Many owls live in forests and woodlands.",
+      "feature": "Many owls hunt at night."
+    },
+    {
+      "name": "penguin",
+      "group": "bird",
+      "sound": "",
+      "habitat": "Penguins live along coasts and feed in the sea.",
+      "feature": "Penguins cannot fly but are strong swimmers."
+    },
+    {
+      "name": "ostrich",
+      "group": "bird",
+      "sound": "",
+      "habitat": "Ostriches live in open parts of Africa.",
+      "feature": "Ostriches cannot fly but can run fast."
+    },
+    {
+      "name": "eagle",
+      "group": "bird",
+      "sound": "",
+      "habitat": "Eagles live in varied habitats including forests and mountains.",
+      "feature": "Eagles have hooked beaks and strong talons."
+    },
+    {
+      "name": "parrot",
+      "group": "bird",
+      "sound": "",
+      "habitat": "Many parrots live in warm forests.",
+      "feature": "Some parrots can imitate sounds."
+    },
+    {
+      "name": "bat",
+      "group": "mammal",
+      "sound": "",
+      "habitat": "Many bats rest in caves or trees.",
+      "feature": "Bats are mammals that can fly."
+    },
+    {
+      "name": "dolphin",
+      "group": "mammal",
+      "sound": "",
+      "habitat": "Many dolphins live in the ocean and some live in rivers.",
+      "feature": "Dolphins breathe air with lungs."
+    },
+    {
+      "name": "whale",
+      "group": "mammal",
+      "sound": "",
+      "habitat": "Whales live in the ocean.",
+      "feature": "Whales breathe air and feed their young milk."
+    },
+    {
+      "name": "elephant",
+      "group": "mammal",
+      "sound": "",
+      "habitat": "Elephants live in habitats including forests and grasslands.",
+      "feature": "Elephants use their trunks to grasp things."
+    },
+    {
+      "name": "giraffe",
+      "group": "mammal",
+      "sound": "",
+      "habitat": "Giraffes live in African savannas and woodlands.",
+      "feature": "Giraffes have long necks that help them reach leaves."
+    },
+    {
+      "name": "rabbit",
+      "group": "mammal",
+      "sound": "",
+      "habitat": "Rabbits live in habitats including grasslands and woodland edges.",
+      "feature": "Rabbits eat plants."
+    },
+    {
+      "name": "lion",
+      "group": "mammal",
+      "sound": "roars",
+      "habitat": "Lions live in habitats including grasslands and woodlands.",
+      "feature": "Lions are meat eaters."
+    },
+    {
+      "name": "frog",
+      "group": "amphibian",
+      "sound": "croaks",
+      "habitat": "Many frogs live near fresh water.",
+      "feature": "Many frogs begin life as tadpoles."
+    },
+    {
+      "name": "crocodile",
+      "group": "reptile",
+      "sound": "",
+      "habitat": "Crocodiles live near water in warm regions.",
+      "feature": "Crocodiles have scales and powerful jaws."
+    },
+    {
+      "name": "snake",
+      "group": "reptile",
+      "sound": "hisses",
+      "habitat": "Snakes live in many habitats including forests and deserts.",
+      "feature": "Snakes have scales and no legs."
+    },
+    {
+      "name": "shark",
+      "group": "fish",
+      "sound": "",
+      "habitat": "Most sharks live in the sea.",
+      "feature": "Sharks breathe through gills."
+    },
+    {
+      "name": "bee",
+      "group": "insect",
+      "sound": "buzzes",
+      "habitat": "Bees are often found near flowering plants.",
+      "feature": "Bees can carry pollen between flowers."
+    },
+    {
+      "name": "mosquito",
+      "group": "insect",
+      "sound": "buzzes",
+      "habitat": "Mosquitoes breed in water and live in many regions.",
+      "feature": "Some mosquitoes transmit disease when they bite."
+    },
+    {
+      "name": "butterfly",
+      "group": "insect",
+      "sound": "",
+      "habitat": "Butterflies are often found near flowering plants.",
+      "feature": "Butterflies develop from caterpillars."
+    },
+    {
+      "name": "spider",
+      "group": "arachnid",
+      "sound": "",
+      "habitat": "Spiders live in many habitats including gardens and homes.",
+      "feature": "Spiders have eight legs rather than six."
+    }
+  ],
+  "references": [
+    {
+      "url": "https://www.cdc.gov/global-health/impact/fighting-the-worlds-deadliest-animal.html",
+      "supports": "mosquito danger from disease transmission and human deaths"
+    },
+    {
+      "url": "https://www.si.edu/spotlight/bats/batfacts",
+      "supports": "bat classification as mammals and flight",
+      "access_note": "search index returned the relevant passage but direct fetch failed"
+    },
+    {
+      "url": "https://ocean.si.edu/ocean-life/seabirds/penguins",
+      "supports": "penguins as birds adapted for swimming and varied habitats"
+    }
+  ],
+  "limitations": "short general descriptions simplify variation among species and do not rank all dangerous animals",
+  "review_date": "2026-10-23"
+}

@@ -1,0 +1,20 @@
+ANIMAL CONVERSATION DEMO
+
+Run in the project terminal
+.\.venv\Scripts\python.exe -B sample_subword.py
+It should print Loaded animals at 23600 total training steps
+Restart any already running chat to load this checkpoint
+/reset clears history and /quit exits
+
+Show the TA data/README.txt then data/conversations/train.jsonl
+Animal facts and source notes are in data/sources/animal_facts.json
+
+Four main files model.py subword_model.py train.py sample_subword.py
+Three tools prepare_data.py check_model.py evaluate.py
+The model generates from weights and does not look up the dataset answers
+
+Current checkpoint runs/animals/best.pt
+Animal test improved from 2/33 to 28/33 strict reference matches
+This small related test is not evidence of general intelligence
+Some new wording still produces nonsense
+Read docs/TA_DEMO.txt for actual successes and failures

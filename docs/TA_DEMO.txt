@@ -1,0 +1,102 @@
+ANIMAL CONVERSATION FROM SCRATCH: TA DEMO
+
+What I built
+A 13.9 million parameter transformer trained from random weights with AI assistance
+It first learned English then basic conversation and now a focused animal curriculum
+No external pretrained weights hosted model API or answer lookup is used
+The chat program never reads the teaching answers at runtime
+It predicts the next word piece using learned weights and the current context
+
+Show the data
+data/README.txt explains the folder
+data/conversations/train.jsonl contains 2870 mixed practice examples
+The current curriculum covers 28 animals plus sampled earlier basic skills
+Descriptions animal groups sounds habitats features comparisons and follow ups
+are mixed with explicitly fictional description reading exercises
+Animal facts and source notes are data/sources/animal_facts.json
+29 validation conversations selected the checkpoint and 33 final test conversations
+were evaluated only after selection
+
+Why this is different from one question one answer
+Known facts are asked with different wording
+Examples contrast birds with mammals and include birds that cannot fly
+Fictional creatures have changing foods and homes supplied in the question
+Some creature names and food home pairings are absent from training
+This tests using context rather than only recalling a fixed world fact
+The templates and vocabulary are still related so success is narrow
+It does not establish GPT level understanding or broad reasoning ability
+
+Architecture and training
+13891584 parameters / 4096 word pieces / 256 token context
+6 transformer blocks / 6 attention heads / embedding width 384
+Animal stage starts from our own runs/basic_improved/best.pt
+Batch 20: 18 conversation windows and 2 English passages
+Learning rate 0.00005 with a 50 update warmup
+Assistant answers and ending tokens earn loss in conversation windows
+All next tokens earn loss in English passages
+Validation every 100 updates and eight check early stopping patience
+Training stopped at 3000 and selected update 2200
+Selected ancestry is 23600 total updates
+Weighted validation loss went from 2.8701 to approximately 0.2477
+No training job is left running
+
+Measured results on identical animal questions
+Before: 2/29 validation reference matches and 2/33 final test matches
+After: 25/29 validation reference matches and 28/33 final test matches
+Final animal question and follow up checks: 16/21
+Final supplied description checks: 12/12
+Earlier basic question diagnostic: 21/38 before and 21/38 after
+Individual basic skills changed even though that total stayed the same
+Reference matching ignores punctuation and case but can reject valid paraphrases
+The test is small and related to practice and is not general question accuracy
+This test is now observed and should not guide further tuning while called unseen
+
+Actual default terminal replies
+What animal barks? -> A dog barks.
+What are birds?
+-> Birds have feathers and lay eggs. Many birds can fly, but some cannot.
+What is the most dangerous animal?
+-> By human deaths from transmitted diseases, mosquitoes are considered the deadliest animals.
+Here is a fictional creature called a niff. It eats leaves. Its home is a pond. What does it eat?
+-> It eats leaves.
+
+Actual reserved test failures
+What sound would I associate with a sheep?
+-> Domestic sheep are often kept on farms.
+A bat has wings so should I call it a bird?
+-> Hello, bat!
+Whales swim in the ocean. Why are they not classed as fish?
+-> The ocean is a mammal, while the fish is a bird.
+These failures show that new wording can still break the model
+
+Code explanation
+model.py provides shared attention and feed forward blocks
+subword_model.py builds the active transformer
+train.py calculates error and updates weights
+sample_subword.py generates replies
+Only three tools are active
+ tools/prepare_data.py builds examples and verifies masks and split separation
+ tools/check_model.py checks model mechanics with disposable weights
+ tools/evaluate.py generates answers and scores them afterward
+
+Run from the project terminal
+.\.venv\Scripts\python.exe -B sample_subword.py
+/reset clears history and /quit exits
+An already open chat keeps old weights until restarted
+The startup banner should identify animals and 23600 total steps
+
+Read complete reports
+runs/animals/animals_validation.json
+runs/animals/animals_test.json
+runs/animals/basic_retention_test.json
+Earlier baseline animal reports are under runs/basic_improved
+
+Sources for nuanced claims
+CDC mosquito risk through disease transmission
+https://www.cdc.gov/global-health/impact/fighting-the-worlds-deadliest-animal.html
+Smithsonian penguins as birds and adaptations for swimming
+https://ocean.si.edu/ocean-life/seabirds/penguins
+Smithsonian bat facts search result supports mammal classification and flight
+https://www.si.edu/spotlight/bats/batfacts
+The direct bat page fetch failed so its source note records that limitation
+Other short records use common elementary facts and simplify species variation

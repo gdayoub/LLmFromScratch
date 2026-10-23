@@ -1,0 +1,16 @@
+/.project-guide.md
+/.venv/
+/artifacts/
+/runs/
+/archive/
+__pycache__/
+*.pyc
+.env
+.env.*
+*.pt
+/data/english/*
+!/data/english/README.txt
+/data/sources/*
+!/data/sources/animal_facts.json
+/docs/*
+!/docs/TA_DEMO.txt
