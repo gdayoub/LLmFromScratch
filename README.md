@@ -1,10 +1,10 @@
 # LLmFromScratch
 
-A small learning project by George Dayoub: a 13.9 million parameter language model trained from scratch with PyTorch, then continued on basic conversations and animal questions. Developed with AI coding assistance.
+I built this small learning project to understand how language models work. I trained a 13.9 million parameter model from scratch with PyTorch, then continued training it on basic conversations and animal questions. I used AI coding assistance while building and evaluating the project.
 
-The model generates one token at a time. It does not look up answers in the dataset or call a hosted model API. It remains experimental and can produce incorrect or nonsensical answers.
+My model generates one token at a time. It does not look up answers in the dataset or call a hosted model API. It remains experimental and can produce incorrect or nonsensical answers.
 
-## What's here
+## How I organized the project
 
 - `model.py`: attention and feed-forward blocks plus the original byte prototype
 - `subword_model.py`: the active transformer
@@ -16,11 +16,11 @@ The model generates one token at a time. It does not look up answers in the data
 - `data/conversations/`: readable training and evaluation examples
 - `data/sources/animal_facts.json`: 28 animal records and source notes
 
-Architecture: 6 blocks, 6 attention heads, width 384, vocabulary 4096, context 256 tokens. Animal training mixes earlier basic skills with animal questions, comparisons, follow-ups, and explicitly fictional description-reading exercises.
+I used 6 transformer blocks, 6 attention heads, an embedding width of 384, a vocabulary of 4096 tokens, and a context window of 256 tokens. During animal training, I mixed earlier basic skills with animal questions, comparisons, follow-ups, and explicitly fictional description-reading exercises.
 
 ## Setup
 
-Python 3.12 and an NVIDIA CUDA GPU were used. Create an environment and install PyTorch appropriate for your CUDA setup, then the tokenizer package:
+I developed this project with Python 3.12 and an NVIDIA CUDA GPU. To run it, create an environment and install PyTorch appropriate for your CUDA setup, along with the tokenizer package:
 
 ```powershell
 python -m venv .venv
@@ -29,33 +29,33 @@ python -m venv .venv
 .\.venv\Scripts\python.exe -B tools/prepare_data.py
 ```
 
-`requirements.txt` records the original development environment, including its CUDA-specific PyTorch build; it is not a universal installation command.
+I recorded my original development environment in `requirements.txt`, including the CUDA-specific PyTorch build. Your setup may need a different PyTorch installation.
 
-The included tokenizer is frozen. Preparation refuses to overwrite an existing token cache. Checkpoints and the original English corpus are excluded from GitHub. See `data/english/README.txt` for English data notes.
+I kept the tokenizer frozen as I continued training. My preparation script refuses to overwrite an existing token cache. I left my checkpoints and original English corpus out of GitHub; see `data/english/README.txt` for the English data notes.
 
-To train a fresh randomly initialized model using only the included teaching curriculum:
+To try my training pipeline with a fresh randomly initialized model and only the included teaching curriculum:
 
 ```powershell
 .\.venv\Scripts\python.exe -B train.py --model-config configs/token_14m.json --tokenized-data artifacts/animals --data data/conversations --dialogue-batches --english-fraction 0 --out runs/animals --steps 4000 --batch-size 20 --lr 0.0001 --eval-every 100 --patience 8
 ```
 
-That command demonstrates the pipeline; it does not reproduce the English-pretrained model's reported performance. The original model first learned from TinyStories, then basic conversations, then animals. Reproducing that result requires those earlier stages and their data.
+I first trained my original model on TinyStories, then basic conversations, then animals. The command above demonstrates the training pipeline, but reproducing my reported results requires those earlier stages and their data.
 
 ## Chat and evaluation
 
-After creating a checkpoint:
+Once I have a checkpoint, I use these commands to chat with the model and evaluate its answers:
 
 ```powershell
 .\.venv\Scripts\python.exe -B sample_subword.py --checkpoint runs/animals/best.pt
 .\.venv\Scripts\python.exe -B tools/evaluate.py --checkpoint runs/animals/best.pt --split validation --report-prefix animals
 ```
 
-`/reset` clears conversation history; `/quit` exits. Restart chat to load changed weights. Training can be stopped with Ctrl+C in its terminal, which saves progress, or by creating a `STOP` file inside the active run directory.
+I use `/reset` to clear conversation history and `/quit` to exit. I restart the chat whenever I want to load updated weights. To stop training and save progress, I press Ctrl+C in its terminal or create a `STOP` file inside the active run directory.
 
-## Recorded experiment
+## What I measured
 
-The original animal checkpoint improved from 2/33 to 28/33 strict reference matches on the same reserved animal exercises. This included 12/12 short fictional-description exercises with held-out names and food/home pairings. The earlier basic diagnostic stayed at 21/38 overall, with individual regressions and gains.
+I measured an improvement from 2/33 to 28/33 strict reference matches on the same reserved animal exercises. My animal checkpoint matched 12/12 short fictional-description exercises with held-out names and food/home pairings. On my earlier basic diagnostic, the total stayed at 21/38, although some individual skills improved and others regressed.
 
-These are small, related synthetic exercises. Reference matching can reject valid paraphrases, and the results do not establish broad understanding. Some reworded animal questions still produced nonsense. The final exercises have now been inspected and should not be reused as an unseen benchmark for future tuning.
+I treat these results as a limited learning experiment. The exercises are small, related, and synthetic, and strict reference matching can reject valid paraphrases. My model still produced nonsense on some reworded animal questions. I have now inspected the final exercises, so I would need a fresh unseen benchmark for future tuning.
 
-English source: [TinyStories](https://huggingface.co/datasets/roneneldan/TinyStories). Nuanced animal claims have CDC and Smithsonian references in the animal fact records. No license is asserted over third-party source materials.
+I used [TinyStories](https://huggingface.co/datasets/roneneldan/TinyStories) for English training. I included CDC and Smithsonian references for nuanced animal claims in the animal fact records. I do not claim ownership of third-party source materials.
