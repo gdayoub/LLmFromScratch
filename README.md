@@ -76,6 +76,14 @@ I first trained my original model on TinyStories, then basic conversations, then
 
 ## Chat and evaluation
 
+I call the terminal chatbot **Clanker**. On Windows, I double-click `Start Clanker.cmd` in the project folder. It uses the project's Python environment and loads the animal checkpoint automatically. From the VS Code PowerShell terminal, I can also run:
+
+```powershell
+& ".\Start Clanker.cmd"
+```
+
+The launcher requires the local environment and trained checkpoint described above. The name changes the terminal display; it does not retrain the model.
+
 Once I have a checkpoint, I use these commands to chat with the model and evaluate its answers:
 
 ```powershell

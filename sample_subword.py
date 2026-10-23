@@ -73,6 +73,7 @@ def main():
     torch.manual_seed(448)
     model, tokenizer, checkpoint = load_model(args.checkpoint)
     total_steps = checkpoint['step'] + sum(parent['step'] for parent in checkpoint.get('lineage', []))
+    print("Clanker")
     print(f"Loaded {args.checkpoint.parent.name} at {total_steps:,} total training steps; small experimental conversation model.")
     if args.probe:
         results = []
@@ -102,7 +103,7 @@ def main():
             continue
         if question:
             answer, history = reply(model, tokenizer, question, history, args.max_tokens, args.temperature, args.top_k)
-            print("Assistant:", answer)
+            print("Clanker:", answer)
 
 
 if __name__ == "__main__":

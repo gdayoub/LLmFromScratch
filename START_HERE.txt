@@ -1,3 +1,13 @@
+START CLANKER
+
+Double click Start Clanker.cmd in this folder
+Or in the VS Code PowerShell terminal run
+& ".\Start Clanker.cmd"
+
+It uses the project environment and animal checkpoint automatically
+Replies are labeled Clanker
+/reset clears conversation and /quit exits
+
 ANIMAL CONVERSATION DEMO
 
 Run in the project terminal
